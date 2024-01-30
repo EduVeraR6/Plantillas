@@ -24,9 +24,11 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException(String.format("User not exists", username));
-        }
+
+        System.out.println(username);
+        user.getUsername();
+
+
         List<GrantedAuthority> roles = new ArrayList<>();
         user.getRoles().forEach(rol -> {
             roles.add(new SimpleGrantedAuthority(rol.getRol()));
