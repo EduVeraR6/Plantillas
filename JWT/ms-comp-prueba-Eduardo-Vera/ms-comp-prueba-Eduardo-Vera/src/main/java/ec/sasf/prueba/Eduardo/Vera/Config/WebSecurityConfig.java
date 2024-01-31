@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeRequests(auth -> auth
                 .requestMatchers(new AntPathRequestMatcher("/login")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/usuarios/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/usuarios")).permitAll()
                 .anyRequest().authenticated())
                 .exceptionHandling(exceptionHandling -> exceptionHandling.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .formLogin(formLogin -> formLogin.disable())

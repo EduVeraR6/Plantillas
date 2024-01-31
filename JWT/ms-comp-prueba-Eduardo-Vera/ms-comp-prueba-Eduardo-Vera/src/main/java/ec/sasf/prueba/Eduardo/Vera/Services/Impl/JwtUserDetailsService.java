@@ -1,6 +1,7 @@
 package ec.sasf.prueba.Eduardo.Vera.Services.Impl;
 
 
+import ec.sasf.prueba.Eduardo.Vera.Entities.Role;
 import ec.sasf.prueba.Eduardo.Vera.Entities.Users;
 import ec.sasf.prueba.Eduardo.Vera.Repositories.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         Users user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(String.format("User not exists", username));
